@@ -199,8 +199,6 @@ void Player::updateWindowBoundsCollision(const sf::RenderTarget* target)
 
 void Player::updateBullets(const float& dt)
 {
-    this->attackCooldown += 60.f * dt;
-    
     for (auto it = this->bullets.begin(); it != this->bullets.end();)
     {
         (*it)->update(dt);

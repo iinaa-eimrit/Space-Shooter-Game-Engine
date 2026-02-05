@@ -4,8 +4,12 @@ project(SpaceShooter)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+# Set SFML directory
+set(SFML_DIR "C:/SFML/SFML-2.6.0/lib/cmake/SFML")
+set(SFML_ROOT "C:/SFML/SFML-2.6.0")
+
 # Find SFML
-find_package(SFML 2.5 COMPONENTS system window graphics audio REQUIRED)
+find_package(SFML 2.6 COMPONENTS system window graphics audio REQUIRED)
 
 # Set source files
 set(SOURCES
@@ -30,9 +34,13 @@ add_executable(SpaceShooter ${SOURCES})
 # Link SFML
 target_link_libraries(SpaceShooter sfml-system sfml-window sfml-graphics sfml-audio)
 
-# Copy assets to build directory
-file(COPY assets DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
-file(COPY config.ini DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
+# Copy assets to build directory (if they exist)
+if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/assets")
+    file(COPY assets DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
+endif()
+if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/config.ini")
+    file(COPY config.ini DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
+endif()
 
 # Set compiler options
 if(MSVC)

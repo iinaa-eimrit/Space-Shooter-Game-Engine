@@ -50,7 +50,7 @@ void Enemy::updateBullets(const float& dt)
     {
         (*it)->update(dt);
         
-        if ((*it)->getBounds().top > 600.f) // Assuming screen height
+        if ((*it)->getBounds().top > 1000.f) // Remove bullets that go far off screen
         {
             it = this->bullets.erase(it);
         }

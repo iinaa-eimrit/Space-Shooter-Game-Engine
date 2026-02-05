@@ -11,6 +11,9 @@ struct HighScoreEntry
     int score;
     int wave;
     
+    HighScoreEntry()
+        : playerName(""), score(0), wave(0) {}
+    
     HighScoreEntry(const std::string& name, int score, int wave)
         : playerName(name), score(score), wave(wave) {}
     

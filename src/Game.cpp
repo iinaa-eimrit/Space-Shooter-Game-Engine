@@ -77,11 +77,11 @@ void Game::initText()
 
 void Game::initSounds()
 {
-    soundManager.loadSound("shoot", "assets/sounds/laser.ogg");
-    soundManager.loadSound("explosion", "assets/sounds/explosion.ogg");
-    soundManager.loadSound("player_hit", "assets/sounds/hit.ogg");
-    soundManager.loadSound("powerup", "assets/sounds/powerup.ogg");
-    soundManager.loadMusic("assets/sounds/background.ogg");
+    soundManager.loadSound("shoot", "assets/sounds/laser.wav");
+    soundManager.loadSound("explosion", "assets/sounds/explosion.wav");
+    soundManager.loadSound("player_hit", "assets/sounds/hit.wav");
+    soundManager.loadSound("powerup", "assets/sounds/powerup.wav");
+    soundManager.loadMusic("assets/sounds/background.wav");
     soundManager.setMusicVolume(50.0f);
     soundManager.playMusic();
 }
@@ -622,6 +622,7 @@ void Game::renderPaused()
     pauseText.setCharacterSize(40);
     pauseText.setFillColor(sf::Color::Yellow);
     pauseText.setString("PAUSED\nPress P to continue");
+    pauseText.setPosition(this->window->getSize().x / 2.f - 150.f, this->window->getSize().y / 2.f - 50.f);
     this->window->draw(pauseText);
 }
 

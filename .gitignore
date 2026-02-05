@@ -1,0 +1,10 @@
+@"
+build/
+*.exe
+*.pdb
+*.obj
+*.lib
+.vs/
+*.log
+.DS_Store
+"@ > .gitignore
